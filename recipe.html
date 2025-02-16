@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe</title>
+    <link rel="stylesheet" href="css/recipe.css">
+    <link rel="stylesheet" href="css/faelles.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo.webp" alt="Logo">
+            </a>
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Main</a></li>
+                <li><a href="liste.html">Recipes</a></li>
+                <li><a href="forms.html">Submit a recipe</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
+    </header>
+
+
+    <main class="recipe_container">
+        <div class="produktbillede">
+            <img class="billede" src="https://kea-alt-del.dk/t7/images/webp/640/${myProduct}.webp" alt="jakke">
+        </div>
+
+        <div <div class="produktinfo ${data.discount && " rabat1"}">
+            <h1>Produktinformation</h1>
+            <h3>Id</h3>
+            <p>${data.id}</p>
+            <h3>Model navn</h3>
+            <p>${data.productdisplayname}</p>
+            <h3>Pris</h3>
+            <p>${data.price}</p>
+            <h3>Mærke</h3>
+            <p>${data.brandname}</>
+            <h3>Season</h3>
+            <p>${data.season}</p>
+
+
+        </div>
+        </div>
+
+
+
+    </main>
+
+    <footer>
+
+        <div class="footer_container">
+
+            <div class="footer_logo">
+                <img src="logo.png" alt="Logo">
+            </div>
+            <ul class="footer_links">
+                <li><a href="forms.html">About us</a></li>
+                <li><a href="forms.html">Contact</a></li>
+                <li><a href="forms.html">Submit a recipe</a></li>
+            </ul>
+            <div class="footer_socials">
+                <a href="images/instagram_logo.webp"><i class="instagram_icon"></i></a>
+                <a href="images/facebook_ikon.webp"><i class="facebook_icon"></i></a>
+                <a href="images/linkedin_logo.webp"><i class="linkedin_icon"></i></a>
+            </div>
+        </div>
+
+    </footer>
+
+    <script src="js/menu.js"></script>
+    <script src="js/recipe.js"></script>
+</body>
+
+</html>
