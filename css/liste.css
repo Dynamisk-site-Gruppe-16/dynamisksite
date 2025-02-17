@@ -1,0 +1,23 @@
+.hero_box .p span {
+  font-weight: bold;
+}
+
+.search_sort-by {
+  background-color: #d9d9d9;
+}
+input.search {
+  width: 260px;
+  display: block;
+  border-radius: 15%;
+  padding: 9px 4px 9px 40px;
+  background-color: white;
+  background: transparent url("/images/search.svg") no-repeat 13px;
+}
+
+@media screen and (min-width: 800px) {
+  .grid_3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10%;
+  }
+}
