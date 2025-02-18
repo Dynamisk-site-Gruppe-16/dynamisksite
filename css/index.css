@@ -1,0 +1,62 @@
+.hero_box .p span {
+  font-weight: bold;
+}
+
+.box_1,
+.box_3,
+.box_5 {
+  background-color: #b1b287;
+  padding: 30%;
+  justify-content: center;
+}
+.box_2,
+.box_4,
+.box_6 {
+  background-color: #cecfad;
+  padding: 30%;
+  justify-content: center;
+}
+.button_mealtype {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  color: black;
+}
+.mealtype {
+  justify-content: center;
+  text-align: center;
+  margin-top: 4%;
+  margin-bottom: 2%;
+}
+.mealtype a {
+  text-decoration: none;
+  text-decoration-line: none;
+}
+
+@media screen and (max-width: 800px) {
+}
+
+@media screen and (min-width: 800px) {
+  .category_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 104%;
+    margin-left: -2%;
+  }
+  .hero_section {
+    background-image: url("https://cdn.dummyjson.com/recipe-images/6.webp");
+    object-fit: cover;
+    width: 104%;
+    margin-left: -2%;
+    margin-top: -2%;
+    height: 885px;
+  }
+  .hero_box {
+    position: absolute;
+    left: 2.5%;
+    top: 55%;
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 3%;
+    width: 40%;
+    height: 30%;
+  }
+}
