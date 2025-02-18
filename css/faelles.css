@@ -18,7 +18,7 @@ header {
 }
 
 .logo img {
-  width: 100px;
+  width: 200px;
 }
 
 nav {
@@ -49,6 +49,7 @@ nav {
   transition: color 0.3s;
   text-align: end;
   font-weight: 400;
+  font-family: "Darumadrop One";
 }
 
 .menu a:hover {
@@ -130,6 +131,7 @@ nav {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   padding: 25px;
+  padding-block: 30px;
   background-color: #f2acb9;
 }
 
@@ -137,6 +139,10 @@ nav {
 .facebook_icon,
 .linkedin_icon {
   width: 100px;
+}
+
+.footer_logo {
+  width: 300px;
 }
 
 /* footer slut */
