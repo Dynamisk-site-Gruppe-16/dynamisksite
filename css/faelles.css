@@ -81,7 +81,7 @@ nav {
 }
 
 .menu a.active {
-  border-bottom: 1px solid --text-color;
+  border-bottom: 1px solid #3b2818;
 }
 
 .burger {
