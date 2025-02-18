@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste view</title>
     <link rel="stylesheet" href="css/faelles.css">
-    <link rel="stylesheet" href="liste.css">
-    <script src="liste.html" defer></script>
+    <link rel="stylesheet" href="css/liste.css">
+    <script src="js/liste.js" defer></script>
 </head>
 
 <body>
@@ -18,7 +18,8 @@
             <img src="" alt="">
             <div class="hero_box">
                 <h1>Find your &shy;Favorite Recipes</h1>
-                <p>Welcome to <span>Dine & Discover</span>, your go-to destination for delicious recipes! Whether you're
+                <p>Welcome to <span><b>Dine & Discover</b></span>, your destination for delicious recipes! Whether
+                    you're
                     a seasoned chef or just
                     starting out, you'll find inspiring dishes, helpful cooking tips, and flavors from around the world.
                     Let's cook,
@@ -26,7 +27,7 @@
             </div>
         </div>
         <div class="search_sort-by">
-            <div>
+            <div class="sort-by">
                 <select id="selectElement">
                     <option value="all">Show all recipes</option>
                     <option value="dinner">Show dinner recipes</option>
@@ -40,9 +41,11 @@
                 <input class="search_bar" type="search" placeholder="Search...">
             </div>
         </div>
-        <div class="grid_3">
+
+
+        <div class="grid_container">
             <div class="card">
-                <img class="card_img" src="" alt="">
+                <img class="card_img" src="https://cdn.dummyjson.com/recipe-images/1.webp" alt="billede_1">
                 <div class="card_text">
                     <h2>Classic Margherita Pizza</h2>
                     <p>Dinner</p>
@@ -50,17 +53,17 @@
                 <div class="icons_card">
                     <div class="icon_card">
                         <p>Prep time</p>
-                        <img src="" alt="">
+                        <img src="images/liste-icon/icon-1.svg" alt="ur">
                         <p>15 min</p>
                     </div>
                     <div class="icon_card">
                         <p>Difficulty</p>
-                        <img src="" alt="">
+                        <img src="images/liste-icon/icon-2.svg" alt="difficulty">
                         <p>Easy</p>
                     </div>
                     <div class="icon_card">
                         <p>Cook time</p>
-                        <img src="" alt="">
+                        <img src="images/liste-icon/icon-1.svg" alt="ur">
                         <p>20 min</p>
                     </div>
                 </div>
@@ -68,14 +71,85 @@
                     <a href="recipe.html">Læs mere</a>
                 </div>
             </div>
-
-            <div class="kort">
-                <img src="https://kea-alt-del.dk/t7/images/webp/640/1529.webp" alt="">
-                <h2>Tee</h2>
-                <div>
-                    <p class="brand">Tshirts | Puma</p>
-                    <p>Dkk 1899</p>
-                    <a href="product.html">Se mere</a>
+            <div class="card">
+                <img class="card_img" src="https://cdn.dummyjson.com/recipe-images/1.webp" alt="billede_1">
+                <div class="card_text">
+                    <h2>Classic Margherita Pizza</h2>
+                    <p>Dinner</p>
+                </div>
+                <div class="icons_card">
+                    <div class="icon_card">
+                        <p>Prep time</p>
+                        <img src="images/liste-icon/icon-1.svg" alt="ur">
+                        <p>15 min</p>
+                    </div>
+                    <div class="icon_card">
+                        <p>Difficulty</p>
+                        <img src="images/liste-icon/icon-2.svg" alt="difficulty">
+                        <p>Easy</p>
+                    </div>
+                    <div class="icon_card">
+                        <p>Cook time</p>
+                        <img src="images/liste-icon/icon-1.svg" alt="ur">
+                        <p>20 min</p>
+                    </div>
+                </div>
+                <div class="card_button">
+                    <a href="recipe.html">Læs mere</a>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card_img" src="https://cdn.dummyjson.com/recipe-images/1.webp" alt="billede_1">
+                <div class="card_text">
+                    <h2>Classic Margherita Pizza</h2>
+                    <p>Dinner</p>
+                </div>
+                <div class="icons_card">
+                    <div class="icon_card">
+                        <p>Prep time</p>
+                        <img src="images/liste-icon/icon-1.svg" alt="ur">
+                        <p>15 min</p>
+                    </div>
+                    <div class="icon_card">
+                        <p>Difficulty</p>
+                        <img src="images/liste-icon/icon-2.svg" alt="difficulty">
+                        <p>Easy</p>
+                    </div>
+                    <div class="icon_card">
+                        <p>Cook time</p>
+                        <img src="images/liste-icon/icon-1.svg" alt="ur">
+                        <p>20 min</p>
+                    </div>
+                </div>
+                <div class="card_button">
+                    <a href="recipe.html">Læs mere</a>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card_img" src="https://cdn.dummyjson.com/recipe-images/1.webp" alt="billede_1">
+                <div class="card_text">
+                    <h2>Classic Margherita Pizza</h2>
+                    <p>Dinner</p>
+                </div>
+                <div class="icons_card">
+                    <div class="icon_card">
+                        <p>Prep time</p>
+                        <img src="images/liste-icon/icon-1.svg" alt="ur">
+                        <p>15 min</p>
+                    </div>
+                    <div class="icon_card">
+                        <p>Difficulty</p>
+                        <img src="images/liste-icon/icon-2.svg" alt="difficulty">
+                        <p>Easy</p>
+                    </div>
+                    <div class="icon_card">
+                        <p>Cook time</p>
+                        <img src="images/liste-icon/icon-1.svg" alt="ur">
+                        <p>20 min</p>
+                    </div>
+                </div>
+                <div class="card_button">
+                    <a href="recipe.html">Læs mere</a>
                 </div>
             </div>
         </div>
