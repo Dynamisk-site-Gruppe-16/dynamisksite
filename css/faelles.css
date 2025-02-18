@@ -1,10 +1,31 @@
-/* menu */
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+:root {
+  --primary-color: #b1b287;
+  --secondary-color: #cecfad;
+  --background-color: #fcf8f1;
+  --text-color: #3b2818;
+  --accent-color: #e7e2d4;
+}
+
+main {
+  background-color: var(--background-color);
+}
+
+p {
+  max-width: 65ch;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* menu */
 
 header {
   position: sticky;
@@ -12,7 +33,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 25px;
+  padding: 30px;
   background-color: #fcf8f1;
   z-index: 20;
 }
@@ -31,6 +52,7 @@ nav {
   list-style: none;
   margin: 0;
   padding: 0;
+  gap: 30px;
 }
 
 .menu li {
@@ -41,23 +63,25 @@ nav {
   margin-right: 0;
 }
 
+/* Ændret her: Tilføjet font-size for at gøre teksten større */
 .menu a {
   display: block;
   padding: 10px;
-  color: #f6738b;
+  color: var(--text-color);
   text-decoration: none;
   transition: color 0.3s;
   text-align: end;
   font-weight: 400;
   font-family: "Darumadrop One";
+  font-size: 18px; /* Ændret: Sætter fontstørrelsen til 18px */
 }
 
 .menu a:hover {
-  color: #50242c;
+  color: var(--primary-color);
 }
 
 .menu a.active {
-  border-bottom: 1px solid #f6738b;
+  border-bottom: 1px solid --text-color;
 }
 
 .burger {
@@ -69,7 +93,7 @@ nav {
 .burger .line {
   width: 100%;
   height: 2px;
-  background-color: #f6738b;
+  background-color: var(--text-color);
   margin-bottom: 5px;
   transition: 0.2s linear;
 }
@@ -119,7 +143,7 @@ nav {
   }
 
   .logo img {
-    width: 70px;
+    width: 120px;
   }
 }
 
@@ -127,22 +151,82 @@ nav {
 
 /* footer */
 
+a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.h3footer {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.footer_links {
+  list-style: none;
+}
+
+.linkfooter img:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.footer_logo {
+  width: 200px;
+}
+
 .footer_container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
   padding: 25px;
   padding-block: 30px;
-  background-color: #f2acb9;
+  background-color: var(--secondary-color);
 }
 
 .instagram_icon,
 .facebook_icon,
 .linkedin_icon {
-  width: 100px;
+  width: 70px;
 }
 
-.footer_logo {
-  width: 300px;
+@media screen and (max-width: 800px) {
+  .footer_links {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .footer_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 25px;
+    padding-block: 30px;
+    background-color: var(--secondary-color);
+  }
+
+  .footer_logo {
+    width: 300px;
+  }
+
+  .footer_socials {
+    padding-left: 30%;
+  }
+
+  .footer_links {
+    padding-left: 30%;
+  }
+
+  .aboutus,
+  .contactus {
+    margin-bottom: 0.2rem;
+  }
+
+  .aboutus,
+  .contactus,
+  .submit li:hover {
+    color: var(--background-color);
+  }
 }
 
 /* footer slut */
