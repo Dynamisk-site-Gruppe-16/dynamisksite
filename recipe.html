@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="da">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -37,29 +37,38 @@
 
 
     <main class="recipe_container">
-        <div class="produktbillede">
-            <img class="billede" src="https://kea-alt-del.dk/t7/images/webp/640/${myProduct}.webp" alt="jakke">
+        <div>
+            <div class="produktbillede">
+                <img class="billede" src="https://cdn.dummyjson.com/recipe-images/${myProduct}.webp" alt="image">
+            </div>
+
+            <div>
+
+                <h1>${data.name}</h1>
+                <h3>Rating</h3>
+                <p>${data.rating}</p>
+                <h3>Mealtype</h3>
+                <p>${data.mealType}</p>
+                <h3>Difficulty</h3>
+                <p>${data.difficulty}</p>
+                <h3>Prep time</h3>
+                <p>${data.prepTimeMinutes}</p>
+                <h3>Cook time</h3>
+                <p>${data.cookTimeMinutes}</p>
+                <h3>Servings</h3>
+                <p>${data.servings}</p>
+            </div>
+
+            <div>
+                <h2>Ingredients</h2>
+                <p>${data.ingredients}</p>
+            </div>
+
+            <div>
+                <h2>Instructions</h2>
+                <p>${data.instructions}</p>
+            </div>
         </div>
-
-        <div <div class="produktinfo ${data.discount && " rabat1"}">
-            <h1>Produktinformation</h1>
-            <h3>Id</h3>
-            <p>${data.id}</p>
-            <h3>Model navn</h3>
-            <p>${data.productdisplayname}</p>
-            <h3>Pris</h3>
-            <p>${data.price}</p>
-            <h3>Mærke</h3>
-            <p>${data.brandname}</>
-            <h3>Season</h3>
-            <p>${data.season}</p>
-
-
-        </div>
-        </div>
-
-
-
     </main>
 
     <footer>
