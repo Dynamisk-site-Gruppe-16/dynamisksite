@@ -8,3 +8,164 @@ main {
   background-color: #fcf8f1;
   padding: 25px;
 }
+
+.grid_1_3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-block: 2rem;
+  text-align: center;
+}
+
+.ingredients {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.instructions {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 2.1rem;
+}
+
+h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.label {
+  font-family: "Darumadrop One";
+  font-size: 1rem;
+}
+
+.grid_1_3 p {
+  font-size: 0.8rem;
+}
+
+.ingredientlist {
+  /* padding-left: 10px; */
+  list-style: none;
+  line-height: 1.5;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.instructionlist {
+  margin-left: 20px;
+  list-style: decimal;
+  line-height: 1.5;
+  max-width: 65ch;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.instructionli {
+  margin-bottom: 0.8rem;
+}
+
+.ingredientsli {
+  margin-bottom: 0.7rem;
+  padding-bottom: 0.7rem;
+  border-bottom: solid 1px var(--primary-color);
+}
+
+.checkbox {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--background-color);
+  border: 2px solid var(--primary-color);
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  top: 5px;
+}
+
+.checkbox:hover {
+  background-color: var(--accent-color);
+}
+
+.checkbox:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+p {
+  line-height: 1.5;
+}
+
+.rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  font-size: 50px;
+}
+
+.rating input {
+  display: none;
+}
+
+.rating label {
+  cursor: pointer;
+  color: var(--accent-color);
+  transition: color 0.3s ease;
+}
+
+.rating label:hover,
+.rating label:hover ~ label {
+  color: var(--secondary-color);
+}
+
+.rating input:checked ~ label {
+  color: var(--primary-color);
+}
+
+.rateh3 {
+  text-align: center;
+  margin-top: 5rem;
+  margin-bottom: 0.6rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+}
+
+@media screen and (min-width: 800px) {
+  .grid_1_1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-inline: 200px;
+    padding-block: 50px;
+  }
+
+  .produktbillede {
+    order: 1;
+    width: 500px;
+    justify-self: center;
+  }
+
+  .ingredientbox {
+    justify-self: center;
+  }
+
+  .instructionbox {
+    padding-left: 350px;
+  }
+
+  .grid_1_3 {
+    padding-inline: 200px;
+  }
+
+  .rateh3 {
+    text-align: center;
+    margin-top: 7rem;
+  }
+
+  .rating {
+    margin-bottom: 3rem;
+  }
+}
