@@ -4,19 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Home page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/faelles.css">
     <script src="js/index.js" defer></script>
+    <script src="js/menu.js" defer></script>
+
 </head>
 
 <body>
-    <header></header>
-
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logobrun.webp" alt="Logo">
+            </a>
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="liste.html">Recipes</a></li>
+                <li><a href="forms.html">Submit a recipe</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
+    </header>
     <main>
         <div class="hero_section">
             <!--<img src="https://cdn.dummyjson.com/recipe-images/6.webp" alt="mad">-->
             <div class="hero_box">
-                <h1>Find your &shy;Favorite Recipes</h1>
+                <h1>Find your &shy;Favorite Recipes!</h1>
                 <p>Welcome to <span>Dine & Discover</span>, your go-to destination for delicious recipes! Whether you're
                     a seasoned chef or just
                     starting out, you'll find inspiring dishes, helpful cooking tips, and flavors from around the world.
@@ -32,61 +56,69 @@
                 you!
             </p>
         </div>
+
         <div class="category_grid">
             <div class="box_1">
                 <h3>Dinner</h3>
                 <div class="button_mealtype">
                     <img src="images/button_1.svg" alt="arrow">
-                    <a href="liste.html?meal-type=dinner">See recipes</a>
+                    <p>See recipes</p>
                     <img src="images/button_2.svg" alt="arrow">
                 </div>
+                <a href="liste.html?meal-type=dinner" class="box_link"></a>
             </div>
 
             <div class="box_2">
                 <h3>Lunch</h3>
                 <div class="button_mealtype">
                     <img src="images/button_1.svg" alt="arrow">
-                    <a href="liste.html?meal-type=lunch">See recipes</a>
+                    <p>See recipes</p>
                     <img src="images/button_2.svg" alt="arrow">
                 </div>
+                <a href="liste.html?meal-type=lunch" class="box_link"></a>
             </div>
 
             <div class="box_3">
                 <h3>Breakfast</h3>
                 <div class="button_mealtype">
                     <img src="images/button_1.svg" alt="arrow">
-                    <a href="liste.html?meal-type=breakfast">See recipes</a>
+                    <p>See recipes</p>
                     <img src="images/button_2.svg" alt="arrow">
                 </div>
+                <a href="liste.html?meal-type=breakfast" class="box_link"></a>
             </div>
 
             <div class="box_4">
                 <h3>Snack</h3>
                 <div class="button_mealtype">
                     <img src="images/button_1.svg" alt="arrow">
-                    <a href="liste.html?meal-type=snack">See recipes</a>
+                    <p>See recipes</p>
                     <img src="images/button_2.svg" alt="arrow">
                 </div>
+                <a href="liste.html?meal-type=snack" class="box_link"></a>
             </div>
 
             <div class="box_5">
                 <h3>Dessert</h3>
                 <div class="button_mealtype">
                     <img src="images/button_1.svg" alt="arrow">
-                    <a href="liste.html?meal-type=dessert">See recipes</a>
+                    <p>See recipes</p>
                     <img src="images/button_2.svg" alt="arrow">
                 </div>
+                <a href="liste.html?meal-type=dessert" class="box_link"></a>
             </div>
 
             <div class="box_6">
-                <h3>Dinner</h3>
+                <h3>Beverage</h3>
                 <div class="button_mealtype">
                     <img src="images/button_1.svg" alt="arrow">
-                    <a href="liste.html">See recipes</a>
+                    <p>See recipes</p>
                     <img src="images/button_2.svg" alt="arrow">
                 </div>
+                <a href="liste.html?meal-type=beverage" class="box_link"></a>
             </div>
         </div>
+
 
         <div class="about_us">
             <h2>About us</h2>
@@ -99,9 +131,35 @@
 
     </main>
 
-    <footer></footer>
+    <footer>
 
+        <div class="footer_container">
 
+            <div class="footer_logo">
+                <img class="footer_logo" src="images/logobrun.webp" alt="Logo">
+            </div>
+            <ul class="footer_links">
+
+                <h3 class="h3footer">Links:</h3>
+                <div class="listfooter">
+                    <li class="aboutus"><a href="forms.html">About us</a></li>
+                    <li class="contactus"><a href="forms.html">Contact</a></li>
+                    <li class="submit"><a href="forms.html">Submit a recipe</a></li>
+                </div>
+            </ul>
+            <div class="footer_socials">
+                <h3 class="h3footer">Follow us on social media:</h3>
+                <a class="linkfooter" href="#"><img src="images/instagram_logo.webp" class="instagram_icon"
+                        alt="Instagram"></a>
+                <a class="linkfooter" href="#"><img src="images/facebook_ikon.webp" class="facebook_icon"
+                        alt="Facebook"></a>
+                <a class="linkfooter" href="#"><img src="images/linkedin_logo.webp" class="linkedin_icon"
+                        alt="LinkedIn"></a>
+            </div>
+
+        </div>
+
+    </footer>
 
 </body>
 
