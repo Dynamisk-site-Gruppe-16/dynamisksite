@@ -1,0 +1,832 @@
+/* @imports (such as fonts) */
+@import url('./faelles.css'); /* Importing the shared styles */
+@import url('https://fonts.googleapis.com/css2?family=Darumadrop+One&family=Patrick+Hand+SC&display=swap');
+
+/*
+
+*****************     TABLE  OF  CONTENTS     *****************
+
+- Use CTRL + F or Command (⌘) + F and "[NAME]" without ""
+- Then click on the downward arrow " ↓ " to navigate to it.
+
+* [VARIABLES]
+* [RESETS]
+* [GENERAL STYLING]
+* [JS CLASS]
+* [HEADER]
+* [NAVBAR]
+* [BURGER MENU BTN]
+* [MOBILE NAVBAR MENU]
+* [FOOTER]
+* [FLEX LAYOUTS]
+* [DESKTOP MEDIA STYLING]
+* [DESKTOP NAVBAR]
+* [DESKTOP FOOTER]
+* [FORMS]
+
+*/
+
+/* [VARIABLES] */
+
+:root {
+  /* Colors (From "faelles.css" 
+   - Added them here, just so i can look them up easier.
+  */
+  /*
+  --primary-color: #b1b287;
+  --secondary-color: #cecfad;
+  --background-color: #fcf8f1;
+  --text-color: #3b2818;
+  --accent-color: #e7e2d4;
+  */
+  /* Fonts */
+  --font-family-sans: "Helvetica", sans-serif;      /* H1 Headings, Body-Text */
+  --font-family-display: "Patrick Hand SC", serif;  /* H2 Sub-Headings */
+  --font-family-accent: "Darumadrop One", serif;    /* Links, accent text */
+  /* Font Sizes */
+  /* Type Scale generated from following typescale generator:
+    - Link: https://anon.to/XAAcdz (Links to: fluid-type-scale.com) 
+  */
+  --fs-xsm: clamp(0.64rem, -0.01vi + 0.64rem, 0.63rem);
+  --fs-sm: clamp(0.8rem, 0.08vi + 0.78rem, 0.84rem);
+  --fs-base: clamp(1rem, 0.22vi + 0.95rem, 1.13rem);
+  --fs-md: clamp(1.25rem, 0.43vi + 1.15rem, 1.5rem);
+  --fs-lg: clamp(1.56rem, 0.76vi + 1.39rem, 2rem);
+  --fs-xl: clamp(1.95rem, 1.24vi + 1.67rem, 2.66rem);
+  --fs-2xl: clamp(2.44rem, 1.93vi + 2.01rem, 3.55rem);
+  --fs-3xl: clamp(3.05rem, 2.93vi + 2.39rem, 4.73rem);
+  --fs-4xl: clamp(3.81rem, 4.34vi + 2.84rem, 6.31rem);
+  /* Spacing Variables */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 5rem;
+}
+
+/* [RESETS] */
+
+/* Everything in HTML remains in Border-Box, even in alternate states */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Smooth Scrolling when (and if) you scroll */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Resets input, btn, textarea and select default properties found in Firefox Defaults list */
+input,
+button,
+textarea,
+select {
+  appearance: auto;
+  display: inline-block;
+  border: none;
+  background: none;
+  outline: none;
+  padding-block: 0;
+  padding-inline: 0;
+}
+
+/* Removes focus-effect (outline-effect) of input, select, btn and textarea */
+input:focus,
+select:focus,
+button:focus,
+textarea:focus {
+  outline: none;
+}
+
+/****** Removes "up / down" icon on input of type="number" ********/
+/* For Chrome, Safari, and Edge */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* For Firefox */
+input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+/* 
+  - Makes text-decoration on links not go through letters like "g"
+  - Removes underline on links
+*/
+a {
+  text-decoration-skip-ink: auto;
+  text-decoration: none;
+}
+
+/* 
+  - Sets the default color of links in various states to be the color specified in other rulesets / parent elements
+  - Disabled by default (uncomment to enable if needed)  
+*/
+/* 
+a:visited,
+a:active,
+a:hover {
+  color: initial;
+}
+*/
+
+/* Removes list-style bulletpoints etc. */
+li {
+  list-style: none;
+}
+
+/* [GENERAL STYLING] */
+
+/* No sideways scroll, scroll on y-axis when overflow, height 100% of parent*/
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100%;
+}
+
+/* Body has min-height at 100vh (takes up full height of viewport), and content is flexed, in column direction */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* <main> styling
+- Flex and center contents within main. Flex grow to fill whitespace (if there is any, e.g. below footer)
+- Gap between elements, add padding to main container
+- Enable y-axis scroll, 
+- Inherit background color from "faelles.css"
+*/
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  gap: var(--space-lg);
+  padding: var(--space-md);
+  padding-bottom: var(--space-2xl);
+  overflow-y: auto;
+}
+
+/* <img> styling
+  - imgs always take up their full width (inherited from "faelles.css") 
+  - imgs are block elements, and cover the whole area they are in
+*/
+img {
+  display: block;
+  object-fit: cover;
+}
+
+/* 
+  - Default Heading and Bodytext behavior 
+  - Text will wrap, if it can't fit its full width in the container
+  - Overflow will break words, so they don't overflow the container 
+  - Hyphens will be added to words that are too long to fit in the container
+  - Line height is set to 150% (1.5x the font size) (in accordance to WebDev book we are using)
+*/
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  text-wrap: wrap;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  line-height: 150%;
+}
+
+/* H1, BodyText, Links Font Family */
+h1, p, a {
+  font-family: var(--font-family-sans);
+}
+
+/* Bodytext Font styling
+  - Removed max-width from "faelles.css",
+  - doesn't make sense to have a global max-width on bodytext.
+*/
+p {
+  font-size: var(--fs-base);
+  max-width: none;
+}
+
+h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-display);
+}
+
+/* Font family for input, button, select, textarea */
+input,
+button,
+select,
+textarea {
+  font-family: var(--font-family-sans);
+}
+
+/* Label Font Styling (Display : Inline-Block so it doesn't break other texts) */
+label {
+  display: inline-block;
+  font-family: var(--font-family-sans);
+}
+
+/* Set all cursor hovers on buttons to be pointers */
+button:hover {
+  cursor: pointer;
+}
+
+/* [JS CLASS] */
+
+/* Hides content, default state of toggleable*/
+.toggleable {
+  display: none;
+  transition: all 1s ease-in-out;
+}
+
+/* Shows content when toggleable is in active state */
+.toggleable.active {
+  display: block;
+  transition: all 1s ease-in-out;
+}
+
+/* Hides content */
+.hideElement {
+  display: none;
+  transition: all 1s ease-in-out;
+}
+
+/* Shows content */
+.showElement {
+  display: block;
+  transition: all 1s ease-in-out;
+}
+
+/* Fades In content */
+.fadeIn {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Fades Out content */
+.fadeOut {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* [HEADER] */
+
+/* Foreword:
+ - I have changed the Header and Navbar styling from "faelles.css" to match my own design.
+ * Reasoning: If i make the contents of the header be in my <nav> tag,
+ - i can set a max-width on the <nav> tag, so it doesn't look stretched
+ - on 4K screens, and it will look more centered and clean.
+ - I can also give the same background color to the header as the <nav>,
+ - this way, it will retain the same color on 4K, but the navbar won't be stretched. 
+*/
+
+/* Header 
+  - Same position as in "faelles.css" so that it scrolls along with the page.
+  - Width is 100% of parent (it scales with width of <body>)
+  - Reset the padding back to 0, as it is added to the <nav> instead.
+  - Background color is set to the var added in root, instead of fixed color.
+  - (The color is the same, im just using the var)
+  - Z-index is increased, just to ensure it stays above other things.
+*/
+
+header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  padding: 0;
+  background-color: var(--color-primary);
+  z-index: 500;
+}
+
+/* Header Logo styling
+ - Same as in "faelles.css".
+*/
+.headerLogo img {
+  width: 120px;
+}
+
+/* [NAVBAR] */
+
+/* Foreword: 
+  - I have decided to change the CSS (as inherited from "faelles.css") for the navbar.
+  - There seems to be multiple (of the same) media queries?
+  - And it occurs to me there has been applied a Desktop-first approach.
+  - I will change this to a Mobile-first approach, as it is more common practice.
+  - But i will otherwise aim for retaining the same look and feel of the navbar, - 
+  - - just with some minor tweaks.
+*/
+
+/* headerNav styling
+  - Set the width to cover the full width of the parent
+  - Set max width to 1920px, so it doesn't look too stretched on big screens
+  - Padding for spacing (it's 2rem, just 2px more than set in "faelles.css")
+  - Flex the contents, align them in the center, and justify the space between the contents
+  - Background color is the same as the background color of the header
+  - Transition for smooth animations to make actions in navbar look more dynamic.
+*/
+.headerNav {
+  width: 100%;
+  max-width: 1920px;
+  padding: var(--space-xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--background-color);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hides desktop navbar links container */
+.headerNavDesktop {
+  display: none;
+}
+
+/* [BURGER MENU BTN] */
+/* Burger Btn
+  * Changes from "faelles.css":
+  - Removed Height property, as it is not needed and will break centering.
+  - Cursor is a pointer when hovering over the burger button (same as in "faelles.css)
+  - (although it won't be visible, since in mobile, there is no cursor.)
+*/
+.headerNavBurger {
+  width: 30px;
+  cursor: pointer;
+}
+
+/* burgerLine Styling
+  - Same as in "faelles.css"
+  - Moved margin-bottom to its own ruleset - burgerLine Spacing between lines 
+  - (since the last burgerLine doesn't need margin bottom) 
+  - Applied transition to all burgerLines (added "all")
+*/
+.burgerLine {
+  width: 100%;
+  height: 2px;
+  background-color: var(--text-color);
+  transition: all 0.2s linear;
+}
+
+/* burgerLine Spacing between lines
+ - Same as in "faelles.css".
+ - Omitted giving the last burgerLine a margin-bottom, as it is not needed.
+*/
+.burgerLine:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.headerNavBurger.active .burgerLine:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.headerNavBurger.active .burgerLine:nth-child(2) {
+  opacity: 0;
+}
+
+.headerNavBurger.active .burgerLine:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* [MOBILE NAVBAR MENU] */
+/* Hides mobile dropdown link menu by default */
+.headerNavMobile {
+  display: none;
+}
+
+/* Mobile Navbar Links Container styling when activated
+ - Display is flex, align items in center, flex direction is column
+ - Position is absolute, top is 100% of parent, right is 0
+ - Width is 100% of parent, padding is 0rem on top and bottom, 1rem on left and right
+ - Background color is the same as the background color of the navbar
+ - Z-index is set to 500, to make it appear on top of other elements
+*/
+.headerNavMobile.active {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 100%;
+  padding: 0rem var(--space-xl);
+  background-color: var(--background-color);
+  z-index: 500;
+}
+
+/* Mobile dropdown links parent-container styling
+  - Width 100%, text right-aligned, 
+  - Margin-bottom for spacing between <li> elements (links)
+*/
+.headerNavMobile li {
+  width: 100%;
+  text-align: right;
+  margin-bottom: var(--space-md);
+}
+
+/* headerNavMobile li first-child spacing (to even it out) */
+.headerNavMobile li:first-child {
+  margin-top: var(--space-md);
+}
+
+/* headerNav Mobile and Desktop links font-styling
+ - Matches that seen in "faelles.css"
+*/
+.headerNavMobile li a, .headerNavDesktop li a {
+  font-family: var(--font-family-accent);
+  font-weight: bold;
+}
+
+/* Mobile dropdown links styling 
+ - Display is inline-block, so it can have a width of 100% of its parent container.
+ - (This is so the entire link is clickable, not just the text).
+ - Padding is set to 1rem on top and bottom, 0rem on left and right.
+ - Font-size is set to almost the same as in "faelles.css", but slightly bigger.
+*/
+.headerNavMobile li a {
+  display: inline-block;
+  width: 100%;
+  padding: var(--space-sm) 0rem;
+  font-size: var(--fs-md);
+}
+
+
+/* [FOOTER] */
+
+/* Foreword:
+  - As with the header and navbar, i will make changes to the footer from "faelles.css" -
+  - - to reflect mobile-first approach.
+  - As well as fix a seemingly unfinished mobile-footer?
+  - The same approach with the header - navbar containerization will be applied here.
+  - This is done to avoid stretching the contents of the footer on 4K screens.
+  - Whilst retaining the background color, and making it look more centered and clean.
+*/
+
+
+/* Footer
+  - Position is relative to its parent container <body>
+  - Is placed at bottom of parent container.
+  - Width is 100% (takes up full width of parent container)
+*/
+footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--secondary-color);
+}
+
+/* Footer Logo
+ - Same as in "faelles.css"
+*/
+.footerLogo {
+  width: 200px;
+}
+/* footerContainer (think footerNavbar)
+  - Flex container, column direction, centered items (from other class, see HTML)
+  - Max-width is set to 1920px, so it doesn't stretch on big screens
+  - Gap between elements, padding for spacing
+*/
+.footerContainer {
+  max-width: 1920px;
+  gap: var(--space-3xl);
+  padding: var(--space-2xl) 0rem;
+}
+
+/* .footerHeading styling
+  - same as in "faelles.css"
+  - Only added margin-bottom for spacing between heading and contents below.
+
+*/
+.footerHeading {
+  font-family: var(--font-family-sans);
+  font-size: var(--fs-md);
+  margin-bottom: var(--space-md);
+}
+
+/* .footerLinks li styling
+ - Giving margin-bottom for spacing between links (apart from last item)
+*/
+.footerLinks ul li:not(:last-child) {
+  margin-bottom: var(--space-sm);
+}
+
+/* .socialMedia styling
+  - Aligns the heading text center, preference.
+*/
+.socialMedia {
+  text-align: center;
+}
+
+/* .socialMediaIcons styling
+  - Matches the width in "faelles.css"
+*/
+.socialMediaIcons img {
+  width: var(--space-4xl);
+}
+
+
+/* [FLEX LAYOUTS] */
+
+.flex_col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex_col_center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flex_row {
+  display: flex;
+}
+
+.flex_row_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex_row_spaceBetween {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex_row_spaceEvenly {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.flex_row_spaceAround {
+  display: flex;
+  justify-content: space-around;
+}
+
+.flex_row_center_spaceBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* [DESKTOP MEDIA STYLING] */
+
+@media screen and (min-width: 801px) {
+  /* [DESKTOP HEADER + NAVBAR] */
+
+  /* Header Desktop Logo styling
+    - Same as in "faelles.css".
+  */
+  .headerLogo img {
+    width: 200px;
+  }
+
+  /* Hides Burger Menu Btn container */
+  .headerNavBurger {
+    display: none;
+  }
+
+  /* Hides Mobile Navbar */
+  .headerNavMobile {
+    display: none;
+  }
+
+  /* headerNavDesktop Container Styling. 
+  - Flex (row), centers flex items, gap between contents
+  - Sets font size and weight
+  */
+  .headerNavDesktop {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xl);
+  }
+
+  /* headerNavDesktop links styling 
+   - Gives the desktop links some padding.
+   - Changed the font-size to be smaller than mobile navbar links, similar to in "faelles.css"
+  */ 
+  .headerNavDesktop a {
+    padding: var(--space-md);
+    font-size: var(--fs-base);
+  }
+
+  /* headerNav Links Hover styling 
+    - Matches that seen in "faelles.css"
+    - Added transition for smooth animations
+  */
+  .headerNavDesktop a:hover {
+    color: var(--primary-color);
+    transition: all 0.3s ease-in-out;
+  }
+
+
+  /* [DESKTOP FOOTER] */
+  
+  /* footerContainer Dekstop Styling
+    - Changed flex direciton to row, justify content space between
+    - Added padding to left-right side as well. 
+  */
+  .footerContainer {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: var(--space-2xl) var(--space-2xl);
+  }
+
+  /* .footerLogo desktop styling
+    - Matches that seen in "faelles.css"
+  */
+  .footerLogo {
+    width: 300px;
+  }
+
+  /* .footerHeading desktop styling
+    - Matches that seen in "faelles.css"
+  */
+  .footerLinks li a:hover {
+    color: var(--background-color);
+  }
+
+  /* .socialMediaIcons desktop styling
+    - Matches that seen in "faelles.css"
+  */
+  .socialMediaIcons img:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+  }
+}
+
+
+/******************* Re-iterated "faelles.css" END ********************/
+
+/* 
+  - The above could be used in-substitute for faelles.css. 
+  - It is coded in a mobile-first approach, and some minor tweaks have been made.
+  - It retains mostly the same look as in "faelles.css".
+  - I just re-structured it to work better in 4K screens, making the content centered.
+  - I also added variables (var(--)) sizing where applicable / possible, as well as color, font-family, etc.
+  - I changed most px measurements to rem, as this is the more modern approach.
+*/
+
+/* [FORMS] */
+
+/* Parent container that contains the heading, explanatory text and the forms 
+  - Since its a flex container, i will give gap between the elements
+  - Margin top and bottom for spacing between other contents in main.
+*/
+.defaultForm {
+  margin: var(--space-3xl) 0rem;
+  gap: var(--space-3xl);
+}
+
+/* Font styling for the heading */
+.defaultForm h1 {
+  font-size: var(--fs-3xl);
+}
+
+/* Gap between text and max ch width */
+.formDescription {
+  gap: var(--space-md);
+  max-width: 65ch;
+}
+
+/* makes the "required" text bold */
+.formDescription p:last-child {
+  font-weight: bolder;
+}
+
+/* Form Container Styling
+  - This container is also a flex container.
+  - Added gap between the elements (label, input) in the form.
+*/
+.defaultForm form {
+  gap: var(--space-md);
+}
+
+/* Styling for the label text
+  - Padding-left to offset the text to align with the input field..
+  - Font-size is set to the base font size.
+*/
+.defaultForm label {
+  padding-left: 0.5rem;
+  font-size: var(--fs-base);
+}
+
+/* Input and Textarea Styling
+  - Background color is set to accent color (idk if this is right one?)
+  - Padding-left to offset the text within the field a little bit.
+*/
+.defaultForm input, textarea, select {
+  background-color: var(--accent-color);
+  padding-left: var(--space-md);
+}
+
+/* Placeholder Styling
+  - Font-family and font-size is set to the base font size.
+*/
+.defaultForm input::placeholder, textarea::placeholder {
+  font-family: var(--font-family-sans);
+  font-size: var(--fs-sm);
+}
+
+/* Styling for the Input field container 
+  - Given a fixed width and height.
+  - Added a border, to match figma design.
+  - Added a border-radius, again, to match figma design.
+  - Margin-bottom for extra spacing between the fields
+*/
+.defaultForm input, select {
+  width: 22rem;
+  height: var(--space-2xl); 
+  border: var(--space-xs) solid var(--primary-color);
+  border-radius: var(--space-2xl);
+  margin-bottom: var(--space-xl);
+}
+
+/* The 2 by 2 fields styling
+  - Flex container, space between the elements
+*/
+.dualContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* The 2 by 2 fields child div styling
+  - Added gap, so that there is spacing between label and input
+*/
+.dualContainer .flex_col {
+  gap: var(--space-md);
+}
+
+/* The 2 by 2 fields input styling
+  - Width is set to 10rem, to match figma design. 
+*/
+.dualContainer input, .dualContainer select {
+  width: 10rem;
+}
+
+/* Parent container of <textarea> and multiple inputs field
+  - Full width and height.
+  - Added background color
+  - Added border and border-radius.
+*/
+.outerContainer {
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent-color);
+  border-radius: var(--space-2xl); 
+  border: var(--space-xs) solid var(--primary-color);
+}
+
+.outerContainer input {
+  margin: 0 1rem;
+}
+
+
+/* <textarea> field styling
+  - Width is 100% of parent container
+  - Height is 100% of parent container
+  - Min-height is set to 10rem, max-height is set to 30rem
+  - Padding-right to offset the text within the field a little bit.
+  - Margin for pushing the container into the parent, so that -
+  - - it doesn't touch the edges of the parent container.
+  - Resize is set to vertical, so the user can resize the textarea.
+*/
+.messageBox {
+  width: 100%;
+  height: 100%;
+  min-height: 10rem;
+  max-height: 30rem;
+  padding-right: var(--space-md);
+  margin: var(--space-md);
+  resize: vertical;
+}
+
+/* Styling for the submit btn
+  - Width is set to 10rem, height is set to 3rem
+  - Background color is set to primary color
+  - Border-radius is set to 3rem
+  - Margin-top for spacing between the textarea and the button
+  - Align-self is set to center, so it is centered in the parent container
+  - Font-size is set to base font size
+  - Cursor is set to pointer, so the user knows it is clickable.
+*/
+.submitFormBtn {
+  width: 10rem;
+  height: var(--space-2xl);
+  background-color: var(--primary-color);
+  border-radius: var(--space-2xl);
+  margin-top: var(--space-2xl);
+  align-self: center;
+  font-size: var(--fs-base);
+  cursor: pointer;
+}
