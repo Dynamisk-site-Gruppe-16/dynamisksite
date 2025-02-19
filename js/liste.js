@@ -48,7 +48,7 @@ function showList(meal) {
                     </div>
                 </div>
                 <div class="card_button">
-                    <a href="recipe.html">Læs mere</a>
+                    <a href="recipe.html?id=${meal.id}">Læs mere</a>
                 </div>
             </div>`;
       }
