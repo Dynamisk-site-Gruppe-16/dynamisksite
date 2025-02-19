@@ -10,20 +10,35 @@ fetch(``)
   .then((Response) => Response.json())
   .then((data) => showList(data));
 
-function showList(products) {
-  const markup = products
+function showList(meal) {
+  const markup = meal
     .map((product) => {
-      return ` <div class="kort">
-      <div>
-                    <img class="${product.soldout && "udsolgt"}" src="https://kea-alt-del.dk/t7/images/webp/640/${product.id}.webp" alt="jakke">
-                    <p class="${product.soldout && "soldout"} ${!product.soldout && "hide"}" >Sold out</p>
-                      <p class="${product.discount && "rabat"} ${!product.discount && "hide"}" >-${product.discount}%</p>
+      return `  <div class="card">
+                <img class="card_img" src="https://cdn.dummyjson.com/recipe-images/${product.id}.webp" alt="billede_1">
+                <div class="card_text">
+                    <h2>Classic Margherita Pizza</h2>
+                    <p>Dinner</p>
                 </div>
-                 <h2> ${product.productdisplayname}</h2>
-                <p class="grey"> ${product.subcategory} | ${product.brandname}</p>
-                <p>${product.price}</p>
-                 <a href="produkt.html?id=${product.id}">Læs mere</a>
- 
+                <div class="icons_card">
+                    <div class="icon_card">
+                        <p>Prep time</p>
+                        <img src="images/liste-icon/icon-1.svg" alt="ur">
+                        <p>15 min</p>
+                    </div>
+                    <div class="icon_card">
+                        <p>Difficulty</p>
+                        <img src="images/liste-icon/icon-2.svg" alt="difficulty">
+                        <p>Easy</p>
+                    </div>
+                    <div class="icon_card">
+                        <p>Cook time</p>
+                        <img src="images/liste-icon/icon-1.svg" alt="ur">
+                        <p>20 min</p>
+                    </div>
+                </div>
+                <div class="card_button">
+                    <a href="recipe.html">Læs mere</a>
+                </div>
             </div>`;
     })
     .join("");

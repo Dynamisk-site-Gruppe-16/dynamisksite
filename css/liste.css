@@ -87,6 +87,7 @@ input.search {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 2%;
     padding-top: 20px;
+    margin: 0 20px 0 20px;
   }
   .search_sort-by {
     display: grid;
@@ -100,6 +101,6 @@ input.search {
     margin-left: 20%;
   }
   .card_button {
-    padding-left: 10%;
+    padding-left: 30%;
   }
 }
