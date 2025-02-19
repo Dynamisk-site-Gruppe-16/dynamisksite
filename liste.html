@@ -7,11 +7,30 @@
     <title>Liste view</title>
     <link rel="stylesheet" href="css/faelles.css">
     <link rel="stylesheet" href="css/liste.css">
+    <script src="js/menu.js" defer></script>
     <script src="js/liste.js" defer></script>
 </head>
 
 <body>
-    <header></header>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logobrun.webp" alt="Logo">
+            </a>
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="liste.html">Recipes</a></li>
+                <li><a href="forms.html">Submit a recipe</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
+    </header>
 
     <main>
         <div class="hero_section">
@@ -28,14 +47,17 @@
         </div>
         <div class="search_sort-by">
             <div class="sort-by">
-                <select id="selectElement">
+                <select id="cuisine">
+                    <option value="All">Cuisine</option>
+                </select>
+                <!-- <select id="selectElement">
                     <option value="all">Show all recipes</option>
                     <option value="dinner">Show dinner recipes</option>
                     <option value="lunch">Show lunch recipes</option>
                     <option value="breakfast">Show breakfast recipes</option>
                     <option value="snack">Show snack recipes</option>
                     <option value="drink">Show drink recipes</option>
-                </select>
+                </select> -->
             </div>
             <div>
                 <input class="search_bar" type="search" placeholder="Search...">
@@ -44,7 +66,7 @@
 
 
         <div class="grid_container">
-            <div class="card">
+            <!-- <div class="card">
                 <img class="card_img" src="https://cdn.dummyjson.com/recipe-images/1.webp" alt="billede_1">
                 <div class="card_text">
                     <h2>Classic Margherita Pizza</h2>
@@ -151,11 +173,39 @@
                 <div class="card_button">
                     <a href="recipe.html">Læs mere</a>
                 </div>
-            </div>
+            </div> -->
         </div>
     </main>
 
-    <footer></footer>
+    <footer>
+
+        <div class="footer_container">
+
+            <div class="footer_logo">
+                <img class="footer_logo" src="images/logobrun.webp" alt="Logo">
+            </div>
+            <ul class="footer_links">
+
+                <h3 class="h3footer">Links:</h3>
+                <div class="listfooter">
+                    <li class="aboutus"><a href="forms.html">About us</a></li>
+                    <li class="contactus"><a href="forms.html">Contact</a></li>
+                    <li class="submit"><a href="forms.html">Submit a recipe</a></li>
+                </div>
+            </ul>
+            <div class="footer_socials">
+                <h3 class="h3footer">Follow us on social media:</h3>
+                <a class="linkfooter" href="#"><img src="images/instagram_logo.webp" class="instagram_icon"
+                        alt="Instagram"></a>
+                <a class="linkfooter" href="#"><img src="images/facebook_ikon.webp" class="facebook_icon"
+                        alt="Facebook"></a>
+                <a class="linkfooter" href="#"><img src="images/linkedin_logo.webp" class="linkedin_icon"
+                        alt="LinkedIn"></a>
+            </div>
+
+        </div>
+
+    </footer>
 </body>
 
 </html>
