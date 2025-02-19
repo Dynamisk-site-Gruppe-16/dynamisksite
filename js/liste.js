@@ -1,39 +1,45 @@
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-const mycategory = urlParams.get("meal-type");
+const mymealtype = urlParams.get("meal-type");
 
-console.log("Kategori:", mycategory);
+console.log("Kategori:", mymealtype);
 
-let productContainer = document.querySelector(".product_list_container");
+let productContainer = document.querySelector(".grid_container");
 
-fetch(``)
-  .then((Response) => Response.json())
-  .then((data) => showList(data));
+fetch(`https://dummyjson.com/recipes?meal-type=${mymealtype}`)
+  .then((response) => response.json())
+  .then((data) => {
+    console.log("recipes", data);
+    showList(data.recipes);
+  });
 
 function showList(meal) {
-  const markup = meal
-    .map((product) => {
-      return `  <div class="card">
-                <img class="card_img" src="https://cdn.dummyjson.com/recipe-images/${product.id}.webp" alt="billede_1">
+  console.log(meal);
+  let markup = "";
+
+  meal
+    .map((meal) => {
+      markup += `  <div class="card">
+                <img class="card_img" src="https://cdn.dummyjson.com/recipe-images/${meal.id}.webp" alt="billede_1">
                 <div class="card_text">
-                    <h2>Classic Margherita Pizza</h2>
-                    <p>Dinner</p>
+                    <h2>${meal.name}</h2>
+                    <p>${meal.mealType}</p>
                 </div>
                 <div class="icons_card">
                     <div class="icon_card">
                         <p>Prep time</p>
                         <img src="images/liste-icon/icon-1.svg" alt="ur">
-                        <p>15 min</p>
+                        <p>${meal.prepTimeMinutes}</p>
                     </div>
                     <div class="icon_card">
                         <p>Difficulty</p>
                         <img src="images/liste-icon/icon-2.svg" alt="difficulty">
-                        <p>Easy</p>
+                        <p>${meal.difficulty}</p>
                     </div>
                     <div class="icon_card">
                         <p>Cook time</p>
                         <img src="images/liste-icon/icon-1.svg" alt="ur">
-                        <p>20 min</p>
+                        <p>${meal.cookTimeMinutes}</p>
                     </div>
                 </div>
                 <div class="card_button">
@@ -42,5 +48,6 @@ function showList(meal) {
             </div>`;
     })
     .join("");
+  console.log("min markup er", markup);
   productContainer.innerHTML = markup;
 }
