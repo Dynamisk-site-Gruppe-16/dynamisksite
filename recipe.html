@@ -37,38 +37,61 @@
 
 
     <main class="recipe_container">
+
         <div>
-            <div class="produktbillede">
-                <img class="billede" src="https://cdn.dummyjson.com/recipe-images/${myProduct}.webp" alt="image">
+
+            <h1>${data.name}</h1>
+
+            <div class="grid_1_3">
+                <p><span class="label">Rating: </span>${data.rating}</p>
+                <p><span class="label">Mealtype: </span>${data.mealType}</p>
+                <p><span class="label">Difficulty: </span>${data.difficulty}</p>
+                <p><span class="label">Prep time: </span>${data.prepTimeMinutes}</p>
+                <p><span class="label">Cook time: </span>${data.cookTimeMinutes}</p>
+                <p><span class="label">Servings: </span>${data.servings}</p>
             </div>
 
-            <div>
+            <div class="grid_1_1">
+                <div class="produktbillede">
+                    <img class="billede" src="https://cdn.dummyjson.com/recipe-images/${myRecipe}.webp" alt="image">
+                </div>
 
-                <h1>${data.name}</h1>
-                <h3>Rating</h3>
-                <p>${data.rating}</p>
-                <h3>Mealtype</h3>
-                <p>${data.mealType}</p>
-                <h3>Difficulty</h3>
-                <p>${data.difficulty}</p>
-                <h3>Prep time</h3>
-                <p>${data.prepTimeMinutes}</p>
-                <h3>Cook time</h3>
-                <p>${data.cookTimeMinutes}</p>
-                <h3>Servings</h3>
-                <p>${data.servings}</p>
+                <div>
+                    <h2 class="ingredients">Ingredients</h2>
+                    <ul class="ingredientlist">${data.ingredients.map((ingredient) => `<li> <input class="checkbox"
+                                type="checkbox">
+                            ${ingredient}</li>`).join("")}</ul>
+                </div>
             </div>
 
-            <div>
-                <h2>Ingredients</h2>
-                <p>${data.ingredients}</p>
+            <div class="instructionbox">
+                <div>
+                    <h2 class="instructions">Instructions</h2>
+                    <ul class="instructionlist">${data.instructions.map((instruction) => `<li class="instructionli">
+                            ${instruction}</li>
+                        `).join("")}</ul>
+                </div>
             </div>
 
-            <div>
-                <h2>Instructions</h2>
-                <p>${data.instructions}</p>
+            <h3 class="rateh3">Rate this recipe:</h3>
+            <div class="rating">
+                <input type="radio" id="star5" name="rating" value="5">
+                <label for="star5">&#9733;</label>
+
+                <input type="radio" id="star4" name="rating" value="4">
+                <label for="star4">&#9733;</label>
+
+                <input type="radio" id="star3" name="rating" value="3">
+                <label for="star3">&#9733;</label>
+
+                <input type="radio" id="star2" name="rating" value="2">
+                <label for="star2">&#9733;</label>
+
+                <input type="radio" id="star1" name="rating" value="1">
+                <label for="star1">&#9733;</label>
             </div>
         </div>
+
     </main>
 
     <footer>
