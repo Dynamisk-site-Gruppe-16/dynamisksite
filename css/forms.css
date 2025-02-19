@@ -682,15 +682,18 @@ footer {
 /* Parent container that contains the heading, explanatory text and the forms 
   - Since its a flex container, i will give gap between the elements
   - Margin top and bottom for spacing between other contents in main.
+  - max-width is set to 20rem, so it fits in smallest mobile (galaxy s10).
 */
 .defaultForm {
   margin: var(--space-3xl) 0rem;
   gap: var(--space-3xl);
+  max-width: 20rem;
 }
 
 /* Font styling for the heading */
 .defaultForm h1 {
   font-size: var(--fs-3xl);
+  text-align: center;
 }
 
 /* Gap between text and max ch width */
@@ -699,7 +702,7 @@ footer {
   max-width: 65ch;
 }
 
-/* makes the "required" text bold */
+/* Makes the "required" text bold */
 .formDescription p:last-child {
   font-weight: bolder;
 }
@@ -721,76 +724,34 @@ footer {
   font-size: var(--fs-base);
 }
 
-/* Input and Textarea Styling
-  - Background color is set to accent color (idk if this is right one?)
+/* Styling for my Forms
+  - Width is set to 100% of parent container
+  - Max-width is set to 22rem.
+  - Height is set to 3rem
   - Padding-left to offset the text within the field a little bit.
+  - Margin-bottom for spacing between the fields
+  - Border is set to 4px solid primary color
+  - Border-radius is set to 3rem
+  - Background color is set to accent color
 */
-.defaultForm input, textarea, select {
-  background-color: var(--accent-color);
+.standardForm {
+  width: 100%;
+  max-width: 22rem;
+  height: var(--space-2xl); 
   padding-left: var(--space-md);
+  margin-bottom: var(--space-xl);
+  border: var(--space-xs) solid var(--primary-color);
+  border-radius: var(--space-2xl);
+  background-color: var(--accent-color);
 }
 
-/* Placeholder Styling
+/* Field Placeholder text styling
   - Font-family and font-size is set to the base font size.
 */
-.defaultForm input::placeholder, textarea::placeholder {
+.standardForm::placeholder {
   font-family: var(--font-family-sans);
   font-size: var(--fs-sm);
 }
-
-/* Styling for the Input field container 
-  - Given a fixed width and height.
-  - Added a border, to match figma design.
-  - Added a border-radius, again, to match figma design.
-  - Margin-bottom for extra spacing between the fields
-*/
-.defaultForm input, select {
-  width: 22rem;
-  height: var(--space-2xl); 
-  border: var(--space-xs) solid var(--primary-color);
-  border-radius: var(--space-2xl);
-  margin-bottom: var(--space-xl);
-}
-
-/* The 2 by 2 fields styling
-  - Flex container, space between the elements
-*/
-.dualContainer {
-  display: flex;
-  justify-content: space-between;
-}
-
-/* The 2 by 2 fields child div styling
-  - Added gap, so that there is spacing between label and input
-*/
-.dualContainer .flex_col {
-  gap: var(--space-md);
-}
-
-/* The 2 by 2 fields input styling
-  - Width is set to 10rem, to match figma design. 
-*/
-.dualContainer input, .dualContainer select {
-  width: 10rem;
-}
-
-/* Parent container of <textarea> and multiple inputs field
-  - Full width and height.
-  - Added background color
-  - Added border and border-radius.
-*/
-.outerContainer {
-  width: 100%;
-  height: 100%;
-  background-color: var(--accent-color);
-  border-radius: var(--space-2xl); 
-  border: var(--space-xs) solid var(--primary-color);
-}
-
-.outerContainer input {
-  margin: 0 1rem;
-}
-
 
 /* <textarea> field styling
   - Width is 100% of parent container
@@ -806,14 +767,75 @@ footer {
   height: 100%;
   min-height: 10rem;
   max-height: 30rem;
-  padding-right: var(--space-md);
   margin: var(--space-md);
   resize: vertical;
 }
 
+/* Placeholder Styling
+  - Font-family and font-size is set to the base font size.
+*/
+.messageBox::placeholder {
+  font-family: var(--font-family-sans);
+  font-size: var(--fs-sm);
+}
+
+/* The 2 by 2 fields styling
+  - Flex container, space between the elements, gap
+*/
+.dualContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* The 2 by 2 fields child div styling
+  - Added gap, so that there is spacing between label and input
+*/
+.dualContainer .flex_col {
+  width: 100%;
+  gap: 1rem;
+}
+
+/* The 2 by 2 fields input styling
+  - Width is set to 10rem, to match figma design. 
+*/
+.dualContainer input, .dualContainer select {
+  width: 10rem;
+}
+
+/* Parent container of <textarea> and multiple inputs field
+  - Full width and height.
+  - Max-width is set to 22rem.
+  - Padding is set to 1rem.
+  - Added background color
+  - Added border and border-radius.
+  - Margin-bottom for spacing between other adjacent fields.
+*/
+.outerContainer {
+  width: 100%;
+  max-width: 22rem;
+  height: 100%;
+  padding: 1rem;
+  background-color: var(--accent-color);
+  border-radius: var(--space-2xl); 
+  border: var(--space-xs) solid var(--primary-color);
+  margin-bottom: 2rem;
+}
+
+/* Margin-top to first label within outerContainer, to match bottom  */
+.outerContainer label:first-child {
+  margin-top: 1rem
+}
+
+/* Margin-bottom to the label, for spacing between label and field in outerContainer */
+.outerContainer label {
+  margin-bottom: 1rem;
+}
+
+
 /* Styling for the submit btn
   - Width is set to 10rem, height is set to 3rem
-  - Background color is set to primary color
+  - Border is set to 4px solid primary color
   - Border-radius is set to 3rem
   - Margin-top for spacing between the textarea and the button
   - Align-self is set to center, so it is centered in the parent container
@@ -823,10 +845,24 @@ footer {
 .submitFormBtn {
   width: 10rem;
   height: var(--space-2xl);
-  background-color: var(--primary-color);
+  border: var(--space-xs) solid var(--primary-color);
   border-radius: var(--space-2xl);
-  margin-top: var(--space-2xl);
+  margin-top: var(--space-xl);
   align-self: center;
   font-size: var(--fs-base);
   cursor: pointer;
+}
+
+/* Added hover effect on btn, to match the design of other pages. */
+.submitFormBtn:hover {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  transition: all 0.3s ease-in-out;
+}
+
+@media screen and (min-width: 801px) {
+  /* Remove max-width in desktop on forms container. */
+  .defaultForm {
+    max-width: unset;
+  }
 }

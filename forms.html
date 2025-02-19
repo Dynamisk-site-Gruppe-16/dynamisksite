@@ -43,22 +43,22 @@
           <p>* = Required</p>
         </div>
         <form class="flex_col" method="POST" id="contactUs-form">
-          <div class="nameContainer">
+          <div class="dualContainer">
             <div class="flex_col">
               <label for="fname">First Name *</label>
-              <input type="text" id="fname" name="fname" placeholder="John" required>
+              <input class="standardForm" type="text" id="fname" name="fname" placeholder="John" required>
             </div>
             <div class="flex_col">
               <label for="lname">Last Name *</label>
-              <input type="text" id="lname" name="lname" placeholder="Doe" required>
+              <input class="standardForm" type="text" id="lname" name="lname" placeholder="Doe" required>
             </div>
           </div>
           <label for="email">Email *</label>
-          <input type="email" id="email" name="email" placeholder="johndoe@mail.com" required>
+          <input class="standardForm" type="email" id="email" name="email" placeholder="johndoe@mail.com" required>
           <label for="subject">Subject *</label>
-          <input type="text" id="subject" name="subject" placeholder="Business Inquiry">
+          <input class="standardForm" type="text" id="subject" name="subject" placeholder="Business Inquiry">
           <label for="message">Message *</label>
-          <div class="messageContainer flex_row_center">
+          <div class="outerContainer flex_row_center">
             <textarea class="messageBox" name="message" id="message" placeholder="Insert message here"
               required></textarea>
           </div>
@@ -66,58 +66,62 @@
         </form>
       </div>
     </section>
-    <section class="showElement" id="submitFormSection">
+    <section class="" id="submitFormSection">
       <div class="defaultForm flex_col_center">
-        <h1>Submit Recipie</h1>
+        <h1>Submit Recipe</h1>
         <div class="formDescription flex_col">
           <p>Fill out all of the required fields, and then click on the “Submit” button to submit your recipie.</p>
           <p>* = Required</p>
         </div>
         <form class="flex_col" method="POST" id="contactUs-form">
           <label for="recipieName">Recipie Name *</label>
-          <input type="text" id="recipieName" name="recipieName" placeholder="Lasagna" required>
-          <div class="flex_col">
-            <label for="cuisine">Choose Cuisine *</label>
-            <select name="cuisine" id="cuisine" required>
-              <option value="" disabled selected>Cuisine</option>
-              <option value="italian">Italian</option>
-              <option value="japanese">Japanese</option>
-              <option value="latinAmerican">Latin American</option>
-            </select>
-          </div>
+          <input class="standardForm" type="text" id="recipieName" name="recipieName" placeholder="Lasagna" required>
+          <label for="cuisine">Choose Cuisine *</label>
+          <select class="standardForm" name="cuisine" id="cuisine" required>
+            <option value="" disabled selected>Cuisine</option>
+            <option value="italian">Italian</option>
+            <option value="japanese">Japanese</option>
+            <option value="latinAmerican">Latin American</option>
+          </select>
           <div class="outerContainer flex_col">
             <label for="ingredient1">Ingredient 1 *</label>
-            <input type="text" name="ingredient1" id="ingredient1" placeholder="Ingredient Name" required></input>
+            <input class="standardForm" type="text" name="ingredient1" id="ingredient1" placeholder="Ingredient Name"
+              required></input>
             <label for="ingredient2">Ingredient 2 *</label>
-            <input type="text" name="ingredient2" id="ingredient2" placeholder="Ingredient Name" required></input>
+            <input class="standardForm" type="text" name="ingredient2" id="ingredient2" placeholder="Ingredient Name"
+              required></input>
             <label for="ingredient3">Ingredient 3 *</label>
-            <input type="text" name="ingredient3" id="ingredient3" placeholder="Ingredient Name" required></input>
+            <input class="standardForm" type="text" name="ingredient3" id="ingredient3" placeholder="Ingredient Name"
+              required></input>
+          </div>
+          <div class="outerContainer flex_col">
+            <label for="instruction1">Instruction 1 *</label>
+            <input class="standardForm" type="text" name="instruction1" id="instruction1" placeholder="Instruction details."
+              required></input>
+            <label for="instruction2">Instruction 2 *</label>
+            <input class="standardForm" type="text" name="instruction2" id="instruction2" placeholder="Instruction details."
+              required></input>
+            <label for="instruction3">Instruction 3 *</label>
+            <input class="standardForm" type="text" name="instruction3" id="instruction3" placeholder="Instruction details."
+              required></input>
           </div>
           <div class="dualContainer">
             <div class="flex_col">
               <label for="pTime">Prep Time *</label>
-              <input type="number" id="pTime" name="pTime" placeholder="Time in min" required>
+              <input class="standardForm" type="number" id="pTime" name="pTime" placeholder="Time in min" required>
             </div>
             <div class="flex_col">
               <label for="cTime">Cook Time *</label>
-              <input type="number" id="cTime" name="cTime" placeholder="Time in min" required>
+              <input class="standardForm" type="number" id="cTime" name="cTime" placeholder="Time in min" required>
             </div>
           </div>
-          <div class="dualContainer">
-            <div class="flex_col">
-              <label for="rating">Rating *</label>
-              <input type="number" id="rating" name="rating" placeholder="3.4 Stars" required>
-            </div>
-            <div class="flex_col">
-              <label for="difficulty">Difficulty *</label>
-              <select name="difficulty" id="difficulty" required>
-                <option value="" disabled selected>Choose Difficulty</option>
-                <option value="eDiff">Easy</option>
-                <option value="mDiff">Medium</option>
-                <option value="hDiff">Hard</option>
-              </select>
-            </div>
-          </div>
+          <label for="difficulty">Difficulty *</label>
+          <select class="standardForm" name="difficulty" id="difficulty" required>
+            <option value="" disabled selected>Choose Difficulty</option>
+            <option value="eDiff">Easy</option>
+            <option value="mDiff">Medium</option>
+            <option value="hDiff">Hard</option>
+          </select>
           <button class="submitFormBtn" type="submit">Submit</button>
         </form>
       </div>
@@ -131,7 +135,7 @@
         <ul class="flex_col">
           <li><a href="index.html#aboutus">About us</a></li>
           <li><a href="forms.html#contact">Contact</a></li>
-          <li><a href="forms.html#submitRecipie">Submit a recipe</a></li>
+          <li><a href="forms.html#submitRecipe">Submit a recipe</a></li>
         </ul>
       </div>
       <div class="socialMedia">
