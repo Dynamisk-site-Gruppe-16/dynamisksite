@@ -5,7 +5,9 @@ const headerNavMobile = document.querySelector(".headerNavMobile");
 const headerNavLinks = headerNavMobile.querySelectorAll("a");
 const burgerMenuBtn = document.querySelector("#burgerBtn");
 
-const hashEditCheck = document.getElementById("hashCheckMe");
+// Form Sections
+const contactForm = document.getElementById("contactFormSection");
+const submitRecipieForm = document.getElementById("submitFormSection");
 
 // Toggle burger and headerNav on click
 // This will add the ".active" class to the #burgerBtn element, triggering the animations in CSS.
@@ -40,16 +42,24 @@ window.addEventListener("resize", () => {
 });
 
 // Function to update the class based on the current hash
+/*
+  - This function will check the current hash in the URL.
+  - It starts by unsetting the "showElement" class from both the contactForm -
+  - - and submitRecipieForm elements.
+  - If the hash is "contact", it will add the class "showElement" to the contactForm element.
+  - If the hash is "submitRecipe", it will add the class "showElement" to the submitRecipieForm element.
+  - If the hash is neither of the above, it will log "No hash found"
+*/
 function updateHashClass() {
   const urlHashCheck = window.location.hash.substring(1);
-  hashEditCheck.classList.remove("hashCheckOne", "hashCheckTwo", "hashCheckThree");
+  contactForm.classList.remove("showElement");
+  submitRecipieForm.classList.remove("showElement");
 
-  if (urlHashCheck === "aboutus") {
-    hashEditCheck.classList.add("hashCheckOne");
-  } else if (urlHashCheck === "contact") {
-    hashEditCheck.classList.add("hashCheckTwo");
-  } else if (urlHashCheck === "submitRecipie") {
-    hashEditCheck.classList.add("hashCheckThree");
+  if (urlHashCheck === "contact") {
+    contactForm.classList.add("showElement");
+    submitRecipieForm.classList.add("hideElement");
+  } else if (urlHashCheck === "submitRecipe") {
+    submitRecipieForm.classList.add("showElement");
   } else {
     console.log("No hash found");
   }
@@ -60,29 +70,3 @@ updateHashClass();
 
 // Listen for hash changes and update the class accordingly
 window.addEventListener("hashchange", updateHashClass);
-
-/*
-// Reset the class list before adding a new class
-function updateHashClass() {
-  hashEditCheck.classList.remove("hashCheckOne", "hashCheckTwo", "hashCheckThree");
-
-  if (urlHashCheck === "aboutus") {
-    hashEditCheck.classList.add("hashCheckOne");
-  } else if (urlHashCheck === "contact") {
-    hashEditCheck.classList.add("hashCheckTwo");
-  } else if (urlHashCheck === "submitRecipie") {
-    hashEditCheck.classList.add("hashCheckThree");
-  } else {
-    console.log("No hash found");
-  }
-}
-
-// Call the function to update the class based on the current hash
-updateHashClass();
-
-// Listen for hash changes and update the class accordingly
-window.addEventListener("hashchange", () => {
-  urlHashCheck = window.location.hash.substring(1);
-  updateHashClass();
-});
-*/
