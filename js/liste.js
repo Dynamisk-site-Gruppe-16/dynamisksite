@@ -28,27 +28,27 @@ function showList(meal) {
                 <img class="card_img" src="https://cdn.dummyjson.com/recipe-images/${meal.id}.webp" alt="billede_1">
                 <div class="card_text">
                     <h2>${meal.name}</h2>
-                    <p>${meal.mealType}</p>
+                    <p class="pliste">${meal.mealType}</p>
                 </div>
                 <div class="icons_card">
                     <div class="icon_card">
-                        <p>Prep time</p>
+                        <p pliste>Prep time</p>
                         <img src="images/liste-icon/icon-1.svg" alt="ur">
-                        <p>${meal.prepTimeMinutes} min</p>
+                        <p pliste>${meal.prepTimeMinutes} min</p>
                     </div>
                     <div class="icon_card">
-                        <p>Difficulty</p>
+                        <p pliste>Difficulty</p>
                         <img src="images/liste-icon/icon-2.svg" alt="difficulty">
-                        <p>${meal.difficulty}</p>
+                        <p pliste>${meal.difficulty}</p>
                     </div>
                     <div class="icon_card">
-                        <p>Cook time</p>
+                        <p pliste>Cook time</p>
                         <img src="images/liste-icon/icon-1.svg" alt="ur">
-                        <p>${meal.cookTimeMinutes} min</p>
+                        <p pliste>${meal.cookTimeMinutes} min</p>
                     </div>
                 </div>
                 <div class="card_button">
-                    <a href="recipe.html">Læs mere</a>
+                    <a href="recipe.html?id=${meal.id}">See more</a>
                 </div>
             </div>`;
       }
@@ -100,23 +100,23 @@ function visListe(data) {
                 </div>
                 <div class="icons_card">
                     <div class="icon_card">
-                        <p>Prep time</p>
+                        <p class="pliste2">Prep time</p>
                         <img src="images/liste-icon/icon-1.svg" alt="ur">
                         <p>${opskrift.prepTimeMinutes}</p>
                     </div>
                     <div class="icon_card">
-                        <p>Difficulty</p>
+                        <p class="pliste2">Difficulty</p>
                         <img src="images/liste-icon/icon-2.svg" alt="difficulty">
                         <p>${opskrift.difficulty}</p>
                     </div>
                     <div class="icon_card">
-                        <p>Cook time</p>
+                        <p class="pliste2">Cook time</p>
                         <img src="images/liste-icon/icon-1.svg" alt="ur">
                         <p>${opskrift.cookTimeMinutes}</p>
                     </div>
                 </div>
                 <div class="card_button">
-                    <a href="recipe.html">Læs mere</a>
+                    <a class="readmore" href="recipe.html?id=${opskrift.id}">See more</a>
                 </div>
             </div>`
     )
