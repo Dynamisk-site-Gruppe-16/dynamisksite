@@ -1,24 +1,14 @@
-h1 {
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  font-size: 3rem;
-}
-
 h2 {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 1.5rem;
 }
 
-h3 {
-  font-family: "Darumadrop One";
-  font-size: 4rem;
-}
 .hero_box .p span {
   font-weight: bold;
 }
 
-/*********** box design **************/
+/*********** box styling **************/
 
 .box_1 {
   background-color: #b1b287;
@@ -122,11 +112,15 @@ h3 {
   color: black;
   margin-top: 1%;
 }
+.meal_container {
+  display: flex;
+}
 .mealtype {
   justify-content: center;
   text-align: center;
   margin-top: 4%;
   margin-bottom: 2%;
+  margin-inline: auto;
 }
 .mealtype a {
   text-decoration: none;
@@ -138,17 +132,23 @@ h3 {
 .svg_2 {
   justify-content: left;
 }
-
-@media screen and (max-width: 800px) {
+/******* mealtype ******/
+.meal_title {
+  text-align: center;
 }
 
-@media screen and (min-width: 800px) {
-  .category_grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    width: 104%;
-    margin-left: -2%;
+.meal_text {
+  text-align: left;
+}
+
+@media screen and (max-width: 800px) {
+  h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1.8rem;
+    margin-bottom: 8px;
   }
+
   .hero_section {
     background-image: url("https://cdn.dummyjson.com/recipe-images/6.webp");
     object-fit: contain;
@@ -159,7 +159,83 @@ h3 {
     width: 104%;
     margin-left: -2%;
     margin-top: -2%;
-    height: 765px;
+    height: 370px;
+  }
+  .hero_box {
+    position: absolute;
+    left: 4.5%;
+    top: 28%;
+    background-color: #fcf8f1e3;
+    padding: 4%;
+    width: 70%;
+    height: 30%;
+  }
+  h3 {
+    font-family: "Darumadrop One";
+    font-size: 2.5rem;
+  }
+  .mealtype {
+    padding: 20px;
+  }
+  /** makes checkerboard pattern in mobile **/
+  .category_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    width: 104%;
+    margin-left: -2%;
+  }
+  .box_1 {
+    order: -6;
+  }
+  .box_2 {
+    order: -5;
+  }
+  .box_3 {
+    order: -3;
+  }
+  .box_4 {
+    order: -4;
+  }
+  .box_5 {
+    order: -2;
+  }
+  .box_6 {
+    order: -1;
+  }
+  /******************* *************/
+  .about_us {
+    padding: 5%;
+    margin-left: 3%;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .category_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 104%;
+    margin-left: -2%;
+  }
+
+  h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 3rem;
+    margin-bottom: 8px;
+  }
+
+  .hero_section {
+    background-image: url("https://cdn.dummyjson.com/recipe-images/6.webp");
+    object-fit: contain;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    width: 104%;
+    margin-left: -2%;
+    margin-top: -2%;
+    height: 700px;
   }
   .hero_box {
     position: absolute;
@@ -167,9 +243,13 @@ h3 {
     top: 60%;
     background-color: #fcf8f1e3;
 
-    padding: 3%;
-    width: 40%;
-    height: 30%;
+    padding: 2%;
+    width: 37%;
+    height: 33%;
+  }
+  h3 {
+    font-family: "Darumadrop One";
+    font-size: 4rem;
   }
   .about_us {
     padding: 5%;
