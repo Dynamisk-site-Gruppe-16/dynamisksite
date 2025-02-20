@@ -6,13 +6,6 @@ console.log("Mealtype", mymealtype);
 
 let recipeContainer = document.querySelector(".grid_container");
 
-fetch(`https://dummyjson.com/recipes?meal-type=${mymealtype}`)
-  .then((response) => response.json())
-  .then((data) => {
-    console.log("url ", mymealtype);
-    showList(data.recipes);
-  });
-
 function showList(recipes) {
   console.log("recipes", recipes);
   let markup = recipes
@@ -52,7 +45,13 @@ function showList(recipes) {
 
 const selectCuisine = document.querySelector("#cuisine");
 selectCuisine.addEventListener("change", filterCuisine);
-const url = "https://dummyjson.com/recipes?limit=0"; // limit=0 henter alle 50 opskrifter
+let url; // limit=0 henter alle 50 opskrifter
+
+if (mymealtype) {
+  url = `https://dummyjson.com/recipes/meal-type/${mymealtype}`;
+} else {
+  url = "https://dummyjson.com/recipes?limit=0";
+}
 
 let allRecipes,
   filteredData,
@@ -60,11 +59,13 @@ let allRecipes,
   mealType = "All";
 
 function hentData() {
+  console.log("hent data igen for helvede");
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
       allRecipes = data.recipes;
       filteredData = allRecipes;
+      showList(allRecipes);
       buildSelects();
       //   visListe(allRecipes);
     });
